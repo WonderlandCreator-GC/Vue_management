@@ -362,7 +362,7 @@ export default {
         }
       ).catch(err => err)
       if (confirmResult === 'cancel') {
-        return 'cancel'
+        return false
       }
       const { data: res } = await this.$http.delete(`categories/${id}`)
       if (res.meta.status !== 200) {

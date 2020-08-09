@@ -286,7 +286,7 @@ export default {
       ).catch(err => err)
       // 如果点击取消，confirmResult 就为字符串'cancel'
       if (confirmResult === 'cancel') {
-        return 'cancel'
+        return false
       }
       // 如果确认，发送删除角色请求
       const { data: res } = await this.$http.delete(`roles/${id}`)
@@ -364,7 +364,7 @@ export default {
       ).catch(err => err)
       // 取消删除
       if (confirmResult !== 'confirm') {
-        return 'cancel'
+        return false
       }
       // 确认删除，发送删除权限请求(需要两个参数：用户id及权限id)
       const { data: res } = await this.$http.delete(
