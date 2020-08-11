@@ -27,6 +27,19 @@ body,
 .el-cascader__dropdown {
   height: 200px !important;
 }
+
 .el-cascader-panel {
   height: 200px !important;
+}
+
+.el-steps {
+  margin: 18px 0;
+}
+
+.el-step__title {
+  font-size: 13px !important;
+}
+
+.ql-editor {
+  min-height: 300px;
 }
