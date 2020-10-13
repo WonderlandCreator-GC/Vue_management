@@ -1,5 +1,5 @@
 # vue_management
-
+基于Vue
 ## Project setup
 ```
 npm install
