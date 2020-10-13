@@ -10,20 +10,9 @@
     <!-- 卡片视图区域 -->
     <el-card>
       <!-- 提示区域 -->
-      <el-alert
-        title="请添加商品信息"
-        type="info"
-        center
-        show-icon
-        :closable="false"
-      ></el-alert>
+      <el-alert title="请添加商品信息" type="info" center show-icon :closable="false"></el-alert>
       <!-- 步骤条区域 -->
-      <el-steps
-        :active="activeIndex - 0"
-        finish-status="success"
-        :space="200"
-        align-center
-      >
+      <el-steps :active="activeIndex - 0" finish-status="success" :space="200" align-center>
         <el-step title="基本信息"></el-step>
         <el-step title="商品参数"></el-step>
         <el-step title="商品属性"></el-step>
@@ -33,19 +22,8 @@
       </el-steps>
 
       <!-- Tab栏区域 -->
-      <el-form
-        :model="addForm"
-        :rules="addFormRules"
-        ref="addFormRef"
-        label-width="100px"
-        label-position="top"
-      >
-        <el-tabs
-          :tab-position="'left'"
-          v-model="activeIndex"
-          :before-leave="beforeTabLeave"
-          @tab-click="tabClick"
-        >
+      <el-form :model="addForm" :rules="addFormRules" ref="addFormRef" label-width="100px" label-position="top">
+        <el-tabs :tab-position="'left'" v-model="activeIndex" :before-leave="beforeTabLeave" @tab-click="tabClick">
           <el-tab-pane label="基本信息" name="0">
             <el-form-item label="商品名称" prop="goods_name">
               <el-input v-model="addForm.goods_name"></el-input>
@@ -60,52 +38,26 @@
               <el-input v-model="addForm.goods_number" type="number"></el-input>
             </el-form-item>
             <el-form-item label="商品分类" prop="goods_cat">
-              <el-cascader
-                v-model="addForm.goods_cat"
-                :options="cateList"
-                :props="cateProps"
-                @change="handleChange"
-              ></el-cascader>
+              <el-cascader v-model="addForm.goods_cat" :options="cateList" :props="cateProps" @change="handleChange"></el-cascader>
             </el-form-item>
           </el-tab-pane>
           <el-tab-pane label="商品参数" name="1">
             <!-- 渲染表单的Item项 -->
-            <el-form-item
-              :label="item.attr_name"
-              v-for="item in manyTableData"
-              :key="item.attr_id"
-            >
+            <el-form-item :label="item.attr_name" v-for="item in manyTableData" :key="item.attr_id">
               <!-- 复选框组 -->
               <el-checkbox-group v-model="item.attr_vals">
-                <el-checkbox
-                  :label="cb"
-                  v-for="(cb, i) in item.attr_vals"
-                  :key="i"
-                  border
-                  size="small"
-                ></el-checkbox>
+                <el-checkbox :label="cb" v-for="(cb, i) in item.attr_vals" :key="i" border size="small"></el-checkbox>
               </el-checkbox-group>
             </el-form-item>
           </el-tab-pane>
           <el-tab-pane label="商品属性" name="2">
-            <el-form-item
-              :label="item.attr_name"
-              v-for="item in onlyTableData"
-              :key="item.attr_id"
-            >
+            <el-form-item :label="item.attr_name" v-for="item in onlyTableData" :key="item.attr_id">
               <el-input v-model="item.attr_vals"></el-input>
             </el-form-item>
           </el-tab-pane>
           <el-tab-pane label="商品图片" name="3">
             <!-- action 表示图片要上传到的后台API地址 -->
-            <el-upload
-              :action="uploadURL"
-              :on-preview="handlePreview"
-              :on-remove="handleRemove"
-              list-type="picture"
-              :headers="headerObj"
-              :on-success="uploadSuccess"
-            >
+            <el-upload :action="uploadURL" :on-preview="handlePreview" :on-remove="handleRemove" list-type="picture" :headers="headerObj" :on-success="uploadSuccess">
               <el-button size="small" type="primary">点击上传</el-button>
             </el-upload>
           </el-tab-pane>
@@ -127,13 +79,6 @@
 </template>
 
 <script>
-// 引入富文本编辑框样式
-import 'quill/dist/quill.core.css'
-import 'quill/dist/quill.snow.css'
-import 'quill/dist/quill.bubble.css'
-
-// 引入富文本编辑框组件
-import { quillEditor } from 'vue-quill-editor'
 // 引入lodash包
 import _ from 'lodash'
 
@@ -160,21 +105,11 @@ export default {
       },
       // 添加商品的表单验证对象
       addFormRules: {
-        goods_name: [
-          { required: true, message: '请输入商品名称', trigger: 'blur' }
-        ],
-        goods_price: [
-          { required: true, message: '请输入商品价格', trigger: 'blur' }
-        ],
-        goods_weight: [
-          { required: true, message: '请输入商品重量', trigger: 'blur' }
-        ],
-        goods_number: [
-          { required: true, message: '请输入商品数量', trigger: 'blur' }
-        ],
-        goods_cat: [
-          { required: true, message: '请选择商品分类', trigger: 'blur' }
-        ]
+        goods_name: [{ required: true, message: '请输入商品名称', trigger: 'blur' }],
+        goods_price: [{ required: true, message: '请输入商品价格', trigger: 'blur' }],
+        goods_weight: [{ required: true, message: '请输入商品重量', trigger: 'blur' }],
+        goods_number: [{ required: true, message: '请输入商品数量', trigger: 'blur' }],
+        goods_cat: [{ required: true, message: '请选择商品分类', trigger: 'blur' }]
       },
       // 商品分类列表
       cateList: [],
@@ -200,10 +135,6 @@ export default {
       // 控制预览图片对话框的显示隐藏
       previewVisible: false
     }
-  },
-  components: {
-    // 局部注册富文本编辑框组件
-    quillEditor
   },
   created() {
     // 获取商品分类列表
@@ -236,30 +167,23 @@ export default {
     async tabClick() {
       // 证明访问的是动态参数面板
       if (this.activeIndex === '1') {
-        const { data: res } = await this.$http.get(
-          `categories/${this.cateId}/attributes`,
-          {
-            params: { sel: 'many' }
-          }
-        )
+        const { data: res } = await this.$http.get(`categories/${this.cateId}/attributes`, {
+          params: { sel: 'many' }
+        })
         if (res.meta.status !== 200) {
           return this.$message.error('获取动态参数列表失败！')
         }
         // 将动态属性中的attr_vals属性值(字符串)转化为数组
         res.data.forEach(item => {
-          item.attr_vals =
-            item.attr_vals === '' ? [] : item.attr_vals.split(' ')
+          item.attr_vals = item.attr_vals === '' ? [] : item.attr_vals.split(' ')
         })
         this.manyTableData = res.data
       }
       // 证明访问的是静态属性面板
       if (this.activeIndex === '2') {
-        const { data: res } = await this.$http.get(
-          `categories/${this.cateId}/attributes`,
-          {
-            params: { sel: 'only' }
-          }
-        )
+        const { data: res } = await this.$http.get(`categories/${this.cateId}/attributes`, {
+          params: { sel: 'only' }
+        })
         if (res.meta.status !== 200) {
           return this.$message.error('获取静态属性列表失败！')
         }

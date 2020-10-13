@@ -144,7 +144,6 @@ export default {
 
 .el-aside {
   background-color: #333744;
-  transition: all 0.2s;
   .el-menu {
     border-right: 0;
   }

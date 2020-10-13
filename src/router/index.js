@@ -1,18 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-const Login = () => import('components/Login')
-const Home = () => import('components/Home')
-const Welcome = () => import('components/Welcome')
-const Users = () => import('components/user/Users')
-const Rights = () => import('components/rights/Rights')
-const Roles = () => import('components/rights/Roles')
-const Category = () => import('components/goods/Category')
-const Params = () => import('components/goods/Params')
-const List = () => import('components/goods/List')
-const AddGoods = () => import('components/goods/AddGoods')
-const Order = () => import('components/order/Order')
-const Report = () => import('components/report/Report')
+const Login = () => import(/* webpackChunkName: "login_home_welcome" */ 'components/Login')
+const Home = () => import(/* webpackChunkName: "login_home_welcome" */ 'components/Home')
+const Welcome = () => import(/* webpackChunkName: "login_home_welcome" */ 'components/Welcome')
+const Users = () => import(/* webpackChunkName: "Users_Rights_Roles" */ 'components/user/Users')
+const Rights = () => import(/* webpackChunkName: "Users_Rights_Roles" */ 'components/rights/Rights')
+const Roles = () => import(/* webpackChunkName: "Users_Rights_Roles" */ 'components/rights/Roles')
+const Category = () => import(/* webpackChunkName: "Cate_Params" */ 'components/goods/Category')
+const Params = () => import(/* webpackChunkName: "Cate_Params" */ 'components/goods/Params')
+const List = () => import(/* webpackChunkName: "GoodsList_Add" */ 'components/goods/List')
+const AddGoods = () => import(/* webpackChunkName: "GoodsList_Add" */ 'components/goods/AddGoods')
+const Order = () => import(/* webpackChunkName: "Order_Report" */ 'components/order/Order')
+const Report = () => import(/* webpackChunkName: "Order_Report" */ 'components/report/Report')
 
 Vue.use(VueRouter)
 
