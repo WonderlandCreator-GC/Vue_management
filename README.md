@@ -1,4 +1,4 @@
-# vue_management
+# Vue-Shop-Management-System
 
 ## Project setup
 ```
