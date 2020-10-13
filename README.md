@@ -4,7 +4,12 @@
 
 
 
-## Proje![](C:\Users\Administrator\Desktop\万年历\calendar\src\assets\img\bg.jpg)ct setup
+## Project setup
+
+
+
+![](F:\vue_project\vue_management\README-IMG\bg.jpg)
+
 ```
 npm install
 ```
