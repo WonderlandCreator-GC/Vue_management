@@ -1,5 +1,4 @@
 # vue_management
-#项目简介
 
 ## Project setup
 ```
