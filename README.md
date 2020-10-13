@@ -1,5 +1,6 @@
 # vue_management
-基于Vue
+#项目简介
+
 ## Project setup
 ```
 npm install
