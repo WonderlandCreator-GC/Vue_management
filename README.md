@@ -11,7 +11,7 @@
  &nbsp;&nbsp;&nbsp;（3）使用 element-ui 组件库构建组件的界面  
  &nbsp;&nbsp;&nbsp;（4）使用Echarts技术构建数据报表  
  
-## 4.项目预览
+## 4.项目预览（正在上传）
 
 ## 5.该项目的优化策略
 
